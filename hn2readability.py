@@ -8,10 +8,12 @@ from modules import parser
 
 # returns the html or false of a page
 url = 'http://www.daemonology.net/hn-daily/'
-#html = parser.getHTML(url)
+fakeConnection = False # set to True for debug
 
-# take html from file
-html = parser.getFile("html.txt")
+if fakeConnection:
+	html = parser.getFile("data/html.txt")
+else:
+	html = parser.getHTML(url)
 
 if html == False:
 	print ("Could not connect to ", url)
@@ -35,4 +37,25 @@ for part in parts:
 if len(date) != 10 or len(links) < 1:
 	print ("Could not extract date and links from page")
 	sys.exit(0)
+
+##############
+# load settings
+settingsFile = "data/settings.json"
+settings = parser.getSettings(settingsFile)
+
+if settings == False: # assign new preset settings
+	settings = {}
+	settings['title'] = '' # the last parsed title
+	settings['user'] = ''
+	settings['token'] = ''
+	settings['kindle'] = False # directly send to Kindle
+
+# title was already processed?
+if settings['title'] == title:
+	print ("No new articles, yet")
+	sys.exit(0)
+
+
+# finally save all optionally changed settings
+parser.saveSettings(settings, settingsFile)
 
