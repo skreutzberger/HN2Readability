@@ -6,22 +6,22 @@ Ever wanted to have the top-ranked Hacker News articles automatically in your Re
 
 HN2Readabilty is a Python application. Luckily, Python is already pre-installed on most Mac OS X and Linux computers. 
 
-The only thing you will (maybe) additionally need to install is the **Python package installer called Pip**. But don’t worry, HN2Readability comes with a handy shell script 
-which helps you on that.
-
+The only thing you will (maybe) additionally need to install is the **Python package installer called Pip**. 
 ### Mac OS X and Linux
     
     # open terminal and go into the directory where you want to install the app...
     # now download the source code
-    wget http://github.com/skreutzberger/HN2Readability/tarball/master
-    tar xzf HN2Readability.tar.gz
-    cd HN2Readability
-    chmod +x install_pip.sh && chmod +x install.sh
+    wget https://github.com/skreutzberger/HN2Readability/tarball/master
+    tar xzf master
+    mv skreutzberger-HN2Readability-* hn2readability-latest
+    cd hn2readability-latest
+    chmod +x install.sh
     
-    # do the next line if you NEED TO INSTALL Pip, too
-    chmod +x install_pip.sh
+    # if you are on Linux and still without Pip write this:
+    sudo apt-get install python-pip
     
-    # or do this line if you ALREADY HAVE Pip
+    # if you are on a Mac please google for and install Pip 
+    # before you continue with:
     ./install.sh
 
 
