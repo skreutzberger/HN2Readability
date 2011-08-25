@@ -1,7 +1,7 @@
 #!/bin/bash
 # a script which installs the Readability API
 # and sets the file permissions
-# requires Python 2.7 and pip
+# requires Python 2.7 and Pip
 
 # install readability-api
 sudo pip install readability-api 

@@ -20,8 +20,11 @@ The only thing you will (maybe) additionally need to install is the **Python pac
     # if you are on Linux and still without Pip write this:
     sudo apt-get install python-pip
     
-    # if you are on a Mac please google for and install Pip 
-    # before you continue with:
+    # if you are on a Mac please google for and install Pip
+    ...
+    ...
+    
+    # finally, start the app installer under Mac and Linux:
     ./install.sh
 
 
@@ -57,7 +60,8 @@ If you want to re-publish the app, please replace the API-Keys with your own. Al
 
 ### What’s still missing:
 
-- installation explained for Windows
+- Pip installation under Mac explained
+- Windows installation explained 
 - overall testing & support for Windows
 - an even easier installation process
 - ... and whatever you think would be a cool & helpful feature
