@@ -41,3 +41,4 @@ _*
 nbproject
 *.pyc
 *.txt
+data/settings.json
