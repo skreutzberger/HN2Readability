@@ -14,6 +14,7 @@ if keys == False:
 	sys.exit(0)
 
 # ask for credentials
+print ("***************************")
 print	("Welcome to HN2Readability. ")
 print ("Please enter your Readability credentials. They will NOT be stored and just used once.")
 	
