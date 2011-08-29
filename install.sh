@@ -9,5 +9,6 @@ chmod +x setup.py
 chmod +x hn2readability.py
 cd data
 cp settings_default.json settings.json
+cp apikeys_default.json apikeys.json
 cd ..
 ./setup.py
