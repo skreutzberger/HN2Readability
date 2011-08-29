@@ -42,3 +42,4 @@ nbproject
 *.pyc
 *.txt
 data/settings.json
+data/apikeys.json
