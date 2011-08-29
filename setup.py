@@ -6,18 +6,34 @@
 import os, sys, readability
 from modules import parser
 
-# get the API Keys
-keysFile = "data/apikeys.json"
-keys = parser.getSettings(keysFile)
-if keys == False:
-	print ("No developer keys existing in apikeys.json. Please contact Readability to get your own developer keys.")
-	sys.exit(0)
-
-# ask for credentials
+# ask for developer credentials
 print ("***************************")
 print	("Welcome to HN2Readability. ")
-print ("Please enter your Readability credentials. They will NOT be stored and just used once.")
+print ("***************************")
+print ("Please enter your Readability developer API credentials.")
+
+# get the API Keys
+api_file = "data/apikeys.json"
+keys = parser.getSettings(api_file)
+if keys == False or not keys['consumerKey'] or not keys['consumerSecret']:
+		# input of key and secret
+		inp_key= "";
+		while len(inp_key) < 2:
+			inp_key = raw_input("Your Readability developer API key: ")
+			
+		inp_secret = "";
+		while len(inp_secret) < 2:
+			inp_secret = raw_input("Your Readability developer API secret: ")
 	
+		keys = {}
+		keys["consumerKey"] = inp_key
+		keys["consumerSecret"] = inp_secret
+ 	
+		parser.saveSettings(keys, api_file)
+		
+# ask for user credentials
+print ("Please enter your Readability user credentials. They will NOT be stored and just used once.")
+
 credentials = False
 while credentials == False:
 	# input of key and secret

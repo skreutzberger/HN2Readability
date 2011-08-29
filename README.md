@@ -2,29 +2,33 @@
 
 Ever wanted to have the top-ranked Hacker News articles automatically in your Readability account? And maybe even get the articles onto your Kindle in a daily digest? With **HN2Readability** you can finally get what you ever wanted!
 
+## Requirements
+
+HN2Readabilty is a Python application. Luckily, Python is already pre-installed on most Mac OS X and Linux computers. You will need the following installed:
+
+- Python
+- Pip (Python package installer)
+- Setuptools (often ships with Pip)
+- **Developer API Keys** from Readability!!!
+- normal Readability user account
+
 ## Installation
 
-HN2Readabilty is a Python application. Luckily, Python is already pre-installed on most Mac OS X and Linux computers. 
 
-The only thing you will (maybe) additionally need to install is the **Python package installer called Pip**. 
 ### Mac OS X and Linux
     
     # open terminal and go into the directory where you want to install the app...
-    # now download the source code
+    # now download the source code from Github
     wget https://github.com/skreutzberger/HN2Readability/tarball/master
     tar xzf master
     mv skreutzberger-HN2Readability-* hn2readability-latest
     cd hn2readability-latest
     chmod +x install.sh
     
-    # if you are on Linux and still without Pip write this:
-    sudo apt-get install python-pip
-    
-    # if you are on a Mac please google for and install Pip
-    ...
-    ...
-    
-    # finally, start the app installer under Mac and Linux:
+    # finally, start the app installer under Mac and Linux
+    # it will download missing libraries and interactively ask you
+    # for your Readability developer API credentials and 
+    # your Readability user credentials
     ./install.sh
 
 
@@ -56,7 +60,7 @@ double-sending of links.
 
 I must confess that HN2Readability is my first project in Python. So, if the Python cracks out there can improve the app code, especially the coding style, please do it! 
 
-If you want to re-publish the app, please replace the API-Keys with your own. Also, **please contribute** in the project by working on the following missing things.
+**Please contribute** in the project by working on the following missing things.
 
 ### What’s still missing:
 
