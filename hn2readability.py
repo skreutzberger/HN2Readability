@@ -6,14 +6,14 @@ import os, sys, readability
 from modules import parser
 
 # get the API Keys
-keysFile = "data/apikeys.json"
+keysFile = os.path.join(os.path.dirname(os.path.realpath(__file__)), "data/apikeys.json")
 keys = parser.getSettings(keysFile)
 if keys == False:
 	print ("No developer keys existing in apikeys.json. Please contact Readability to get your own developer keys.")
 	sys.exit(0)
 
 # load settings
-settingsFile = "data/settings.json"
+settingsFile = os.path.join(os.path.dirname(os.path.realpath(__file__)), "data/settings.json")
 settings = parser.getSettings(settingsFile) 
 if settings == False or not settings['token1'] or not settings['token2']:
 	print ("No Readability credentials existing. Please run ./setup.py")
@@ -86,7 +86,12 @@ for link in links:
 	try: # fails if article already existing
 		response = rdd.add_bookmark(link)
 		counter = counter +1
-	except:
+	except readability.api.ResponseError, re:
+		error_message = 'Readability ResponseError "%s"' % re.msg
+		error = True
+	except Exception, e:
+		import sys
+		error_message = sys.exc_info()[0]
 		error = True
 
 if not error:
@@ -94,6 +99,7 @@ if not error:
 	print("Successfully sent " + str(counter) + " links to Readability")
 else:
 	print("An error did occur or today's articles were already sent to Readability. Please try again tomorrow.")	
+	print("Error description : %s" %error_message)
 	
 # finally save all optionally changed settings
 parser.saveSettings(settings, settingsFile)
